@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 @AllArgsConstructor
 @Getter
@@ -36,7 +37,7 @@ public class Transaction {
     private String description;
 
     @Column(name = "created_at")
-    private LocalDate createdAt;
+    private ZonedDateTime createdAt;
 
     public Transaction() {
     }

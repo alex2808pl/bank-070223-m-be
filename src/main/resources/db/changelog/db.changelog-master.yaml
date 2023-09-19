@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/changelog.h2.yaml
+  - include:
+      file: db/changelog/changeset/insert-managers-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/insert-clients-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/insert-products-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/insert-accounts-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/insert-agreements-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/insert-transactions-data-changelog.yaml

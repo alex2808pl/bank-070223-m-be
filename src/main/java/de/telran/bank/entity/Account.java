@@ -58,4 +58,7 @@ public class Account {
 
     @OneToMany(mappedBy = "creditAccount", cascade = CascadeType.ALL)
     private Set<Transaction> creditTransactions = new HashSet<>();
+
+    @OneToOne(mappedBy = "account")
+    private Agreement agreement;
 }

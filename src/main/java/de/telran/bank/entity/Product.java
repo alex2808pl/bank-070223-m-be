@@ -39,8 +39,8 @@ public class Product {
     @Column(name = "interest_rate")
     private int interestRate;
 
-    @Column(name = "limit_product")
-    private long limit;
+    @Column(name = "total")
+    private long total;
 
     @Column(name = "created_at")
     private ZonedDateTime createdAt;

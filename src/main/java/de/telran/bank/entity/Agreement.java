@@ -19,8 +19,8 @@ public class Agreement {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "account_id")
-    private long accountId;
+//    @Column(name = "account_id")
+//    private long accountId;
 
 //    @Column(name = "product_id")
 //    private long productId;
@@ -46,4 +46,8 @@ public class Agreement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
 }

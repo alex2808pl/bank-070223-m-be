@@ -1,0 +1,115 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-clients
+      author: alex2808
+      changes:
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: manager_id
+                  value: "1"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: tax_code
+                  value: "1234569872"
+              - column:
+                  name: first_name
+                  value: "Ann"
+              - column:
+                  name: last_name
+                  value: "Jackson"
+              - column:
+                  name: email
+                  value: "ann.jacson@gmail.com"
+              - column:
+                  name: address
+                  value: "Wildstrasse 5, Essen"
+              - column:
+                  name: phone
+                  value: "+4915152315748"
+              - column:
+                  name: created_at
+                  value: "2023-09-12 10:09:31.393"
+              - column:
+                  name: updated_at
+                  value: "2023-09-12 12:29:31.393"
+
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: manager_id
+                  value: "2"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: tax_code
+                  value: "1233469872"
+              - column:
+                  name: first_name
+                  value: "Mike"
+              - column:
+                  name: last_name
+                  value: "Ruth"
+              - column:
+                  name: email
+                  value: "mike.ruth@gmail.com"
+              - column:
+                  name: address
+                  value: "Grosseallee 31, Munchen"
+              - column:
+                  name: phone
+                  value: "+4916153659875"
+              - column:
+                  name: created_at
+                  value: "2023-08-21 10:09:31.393"
+              - column:
+                  name: updated_at
+                  value: "2023-08-21 12:29:31.393"
+
+        - insert:
+            tableName: clients
+            columns:
+              - column:
+                  name: id
+                  value: "3"
+              - column:
+                  name: manager_id
+                  value: "1"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: tax_code
+                  value: "2533469800"
+              - column:
+                  name: first_name
+                  value: "John"
+              - column:
+                  name: last_name
+                  value: "Travolta"
+              - column:
+                  name: email
+                  value: "john.travolta@gmail.com"
+              - column:
+                  name: address
+                  value: "5av. 125, NewYork"
+              - column:
+                  name: phone
+                  value: "+100353659875"
+              - column:
+                  name: created_at
+                  value: "2023-08-27 11:09:31.593"
+              - column:
+                  name: updated_at
+                  value: "2023-08-27 12:29:31.393"

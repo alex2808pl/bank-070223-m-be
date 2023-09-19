@@ -1,0 +1,66 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-accounts
+      author: YevgeniyShulimenko
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: client_id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "Ann_Jackson_Account"
+              - column:
+                  name: type
+                  value: "1"
+              - column:
+                  name: status
+                  value: "1"
+              - column:
+                  name: balance
+                  value: "150000"
+              - column:
+                  name: currency_code
+                  value: "3"
+              - column:
+                  name: created_at
+                  value: "2023-09-14 22:41:30.159"
+              - column:
+                  name: updated_at
+                  value: "2023-09-16 22:44:26.185"
+
+        - insert:
+            tableName: accounts
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: client_id
+                  value: "2"
+              - column:
+                  name: name
+                  value: "Mike_Ruth_Account"
+              - column:
+                  name: type
+                  value: "1"
+              - column:
+                  name: status
+                  value: "1"
+              - column:
+                  name: balance
+                  value: "190000"
+              - column:
+                  name: currency_code
+                  value: "3"
+              - column:
+                  name: created_at
+                  value: "2023-09-15 22:41:30.159"
+              - column:
+                  name: updated_at
+                  value: "2023-09-16 22:44:26.185"

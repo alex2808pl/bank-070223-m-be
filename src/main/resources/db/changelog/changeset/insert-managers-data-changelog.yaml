@@ -1,0 +1,445 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-managers
+      author: YevgeniyShulimenko
+      changes:
+        - insert:
+            tableName: managers
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: first_name
+                  value: "Елена"
+              - column:
+                  name: last_name
+                  value: "Семенова"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: created_at
+                  value: "2023-07-07 08:41:08.788"
+              - column:
+                  name: updated_at
+                  value: "2023-07-07 08:42:08.788"
+
+        - insert:
+            tableName: managers
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: first_name
+                  value: "Петр"
+              - column:
+                  name: last_name
+                  value: "Иванов"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: created_at
+                  value: "2023-07-15 08:41:08.788"
+              - column:
+                  name: updated_at
+                  value: "2023-07-15 08:42:08.788"
+#
+#        - insert:
+#            tableName: managers
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "f74cf29c-5401-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: first_name
+#                  value: "Eric"
+#              - column:
+#                  name: last_name
+#                  value: "Rutten"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: description
+#                  value: ""
+#              - column:
+#                  name: created_at2023-07-21 08:30:21
+#                  value: ".699"
+
+#  - changeSet:
+#      id: insert-transactions
+#      author: YevgeniyShulimenko
+#      changes:
+#        - insert:
+#            tableName: transactions
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "4b5b2bd2-52ff-11ee-be56-0242ac120002"
+#              - column:
+#                  name: debit_account_id
+#                  value: "cc345ca9-bdbc-4ba2-8cd5-ff65175b6a93"
+#              - column:
+#                  name: credit_account_id
+#                  value: "9df1e2a0-5309-11ee-be56-0242ac120002"
+#              - column:
+#                  name: type
+#                  value: "1"
+#              - column:
+#                  name: amount
+#                  value: "221.15"
+#              - column:
+#                  name: description
+#                  value: "bill payment"
+#              - column:
+#                  name: created_at
+#                  value: "2023-08-14 17:09:31.393"
+#
+#        - insert:
+#            tableName: transactions
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "6f8b60de-5409-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: debit_account_id
+#                  value: "9df1e2a0-5309-11ee-be56-0242ac120002"
+#              - column:
+#                  name: credit_account_id
+#                  value: "cc345ca9-bdbc-4ba2-8cd5-ff65175b6a93"
+#              - column:
+#                  name: type
+#                  value: "1"
+#              - column:
+#                  name: amount
+#                  value: "251.00"
+#              - column:
+#                  name: description
+#                  value: "purchase"
+#              - column:
+#                  name: created_at
+#                  value: "2023-08-20 10:59:41.555"
+#
+#        - insert:
+#            tableName: transactions
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "f97c646e-5409-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: debit_account_id
+#                  value: "cc345ca9-bdbc-4ba2-8cd5-ff65175b6a93"
+#              - column:
+#                  name: credit_account_id
+#                  value: "9df1e2a0-5309-11ee-be56-0242ac120002"
+#              - column:
+#                  name: type
+#                  value: "2"
+#              - column:
+#                  name: amount
+#                  value: "563.45"
+#              - column:
+#                  name: description
+#                  value: "purchase"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-01 12:09:41.555"
+
+
+  #  - changeSet:
+#      id: insert-clients
+#      author: YevgeniyShulimenko
+#      changes:
+#        - insert:
+#            tableName: clients
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "f15d99ec-5396-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: manager_id
+#                  value: "1763f054-5393-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: tax_code
+#                  value: "1234569872"
+#              - column:
+#                  name: first_name
+#                  value: "Ann"
+#              - column:
+#                  name: last_name
+#                  value: "Jackson"
+#              - column:
+#                  name: email
+#                  value: "ann.jacson@gmail.com"
+#              - column:
+#                  name: address
+#                  value: "Wildstrasse 5, Essen"
+#              - column:
+#                  name: phone
+#                  value: "+4915152315748"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-12 10:09:31.393"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-09-12 12:29:31.393"
+#
+#        - insert:
+#            tableName: clients
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "f2829426-549f-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: manager_id
+#                  value: "caed40d0-5401-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: tax_code
+#                  value: "1233469872"
+#              - column:
+#                  name: first_name
+#                  value: "Mike"
+#              - column:
+#                  name: last_name
+#                  value: "Ruth"
+#              - column:
+#                  name: email
+#                  value: "mike.ruth@gmail.com"
+#              - column:
+#                  name: address
+#                  value: "Grosseallee 31, Munchen"
+#              - column:
+#                  name: phone
+#                  value: "+4916153659875"
+#              - column:
+#                  name: created_at
+#                  value: "2023-08-21 10:09:31.393"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-08-21 12:29:31.393"
+#
+#        - insert:
+#            tableName: clients
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "223f5e69-f258-4e23-8728-23da411742d8"
+#              - column:
+#                  name: manager_id
+#                  value: "f74cf29c-5401-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: tax_code
+#                  value: "2533469800"
+#              - column:
+#                  name: first_name
+#                  value: "John"
+#              - column:
+#                  name: last_name
+#                  value: "Travolta"
+#              - column:
+#                  name: email
+#                  value: "john.travolta@gmail.com"
+#              - column:
+#                  name: address
+#                  value: "5av. 125, NewYork"
+#              - column:
+#                  name: phone
+#                  value: "+100353659875"
+#              - column:
+#                  name: created_at
+#                  value: "2023-08-27 11:09:31.593"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-08-27 12:29:31.393"
+#
+#        - insert:
+#            tableName: clients
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "3c22d5fa-51fd-47bf-bad4-c6314ad9c6fd"
+#              - column:
+#                  name: manager_id
+#                  value: "1763f054-5393-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: tax_code
+#                  value: "25006269800"
+#              - column:
+#                  name: first_name
+#                  value: "John"
+#              - column:
+#                  name: last_name
+#                  value: "Smith"
+#              - column:
+#                  name: email
+#                  value: "john.smith@gmail.com"
+#              - column:
+#                  name: address
+#                  value: "Schaan 52, Jüchen"
+#              - column:
+#                  name: phone
+#                  value: "+4901116596057"
+#              - column:
+#                  name: created_at
+#                  value: "2023-08-23 11:09:31.593"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-08-23 12:29:31.393"
+#
+#        - insert:
+#            tableName: clients
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "313bcae3-14dc-4b9e-878c-dd1761f4d228"
+#              - column:
+#                  name: manager_id
+#                  value: "caed40d0-5401-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: tax_code
+#                  value: "29876269111"
+#              - column:
+#                  name: first_name
+#                  value: "Jane"
+#              - column:
+#                  name: last_name
+#                  value: "Cotlin"
+#              - column:
+#                  name: email
+#                  value: "jane777@gmail.com"
+#              - column:
+#                  name: address
+#                  value: "Schanzenstrasse 54, Dusseldorf"
+#              - column:
+#                  name: phone
+#                  value: "+4917173524687"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-01 08:09:38.593"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-09-03 12:29:31.393"
+
+#  - changeSet:
+#      id: insert-accounts
+#      author: YevgeniyShulimenko
+#      changes:
+#        - insert:
+#            tableName: accounts
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "cc345ca9-bdbc-4ba2-8cd5-ff65175b6a93"
+#              - column:
+#                  name: client_id
+#                  value: "f15d99ec-5396-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: name
+#                  value: "Ann_Jackson_Account"
+#              - column:
+#                  name: type
+#                  value: "1"
+#              - column:
+#                  name: status
+#                  value: "1"
+#              - column:
+#                  name: balance
+#                  value: "150000.00"
+#              - column:
+#                  name: currency_code
+#                  value: "3"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-14 22:41:30.159"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-09-16 22:44:26.185"
+#
+#  - changeSet:
+#      id: insert-products
+#      author: YevgeniyShulimenko
+#      changes:
+#        - insert:
+#            tableName: products
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "a7bd2ad4-53fd-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: manager_id
+#                  value: "1763f054-5393-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: name
+#                  value: "Current debit account"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: currency_code
+#                  value: "2"
+#              - column:
+#                  name: interest_rate
+#                  value: "8.25"
+#              - column:
+#                  name: limit_sum
+#                  value: "200000"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-13 14:32:31.588"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-09-13 14:51:39.477"
+#              - column:
+#                  name: agreement_id
+#                  value: "9cd0fab8-53ff-11ee-8c99-0242ac120002"
+#  - changeSet:
+#      id: insert-agreements
+#      author: YevgeniyShulimenko
+#      changes:
+#        - insert:
+#            tableName: agreements
+#            columns:
+#              - column:
+#                  name: id
+#                  value: "9cd0fab8-53ff-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: account_id
+#                  value: "cc345ca9-bdbc-4ba2-8cd5-ff65175b6a93"
+#              - column:
+#                  name: product_id
+#                  value: "a7bd2ad4-53fd-11ee-8c99-0242ac120002"
+#              - column:
+#                  name: interest_rate
+#                  value: "8.25"
+#              - column:
+#                  name: status
+#                  value: "0"
+#              - column:
+#                  name: sum
+#                  value: "150000"
+#              - column:
+#                  name: created_at
+#                  value: "2023-09-14 22:41:30.159"
+#              - column:
+#                  name: updated_at
+#                  value: "2023-09-16 22:44:26.185"
+#
+#

@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-products
+      author: YevgeniyShulimenko
+      changes:
+        - insert:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: manager_id
+                  value: "1"
+              - column:
+                  name: name
+                  value: "Current debit account"
+              - column:
+                  name: status
+                  value: "0"
+              - column:
+                  name: currency_code
+                  value: "2"
+              - column:
+                  name: interest_rate
+                  value: "8"
+              - column:
+                  name: total
+                  value: "200000"
+              - column:
+                  name: created_at
+                  value: "2023-09-13 14:32:31.588"
+              - column:
+                  name: updated_at
+                  value: "2023-09-13 14:51:39.477"

@@ -1,0 +1,12 @@
+1. Генерация с БД в файл
+liquibase.bat generateChangeLog --driver=org.h2.Driver --url=jdbc:h2:file:D:/java/h2/dev --username=sa --password=sa --changeLogFile=changelog.h2.yaml
+
+2. Установка tag
+liquibase.bat tag --tag=v.1.0 --driver=org.h2.Driver --url=jdbc:h2:file:D:/java/h2/dev --username=sa --password=sa
+
+3. Rollback
+liquibase.bat rollback --tag=v.1.0 --driver=org.h2.Driver --url=jdbc:h2:file:D:/java/h2/dev --username=sa --password=sa --changeLogFile=changelog.h2.yaml
+
+liquibase.bat rollback-count 1 --driver=org.h2.Driver --url=jdbc:h2:file:D:/java/h2/dev --username=sa --password=sa --changeLogFile=changelog.h2.yaml
+
+liquibase rollback-one-changeset --driver=org.h2.Driver --url=jdbc:h2:file:D:/java/h2/dev --username=sa --password=sa --changelog-file=changelog.h2.yaml --changeset-author="alex2 (generated)" --changeset-id="1694969822770-6" --changeset-path=db/changelog/changeset/v1.0/changelog.h2.yaml --force

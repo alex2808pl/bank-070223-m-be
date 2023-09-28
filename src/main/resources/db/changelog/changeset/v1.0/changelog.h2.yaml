@@ -38,6 +38,9 @@ databaseChangeLog:
             name: TYPE
             type: VARCHAR(255)
         tableName: ACCOUNTS
+    rollback:
+    - dropTable:
+        tableName: ACCOUNTS
 - changeSet:
     id: 1694969822770-2
     author: alex2 (generated)
@@ -221,6 +224,10 @@ databaseChangeLog:
             name: TYPE
             type: VARCHAR(255)
         tableName: TRANSACTIONS
+    rollback:
+        - dropTable:
+              tableName: TRANSACTIONS
+
 - changeSet:
     id: 1694969822770-7
     author: alex2 (generated)
@@ -289,109 +296,109 @@ databaseChangeLog:
             name: PRODUCT_ID
         indexName: FKVTP15T5X12X5LK4AKEDY8E4N_INDEX_2
         tableName: AGREEMENTS
-- changeSet:
-    id: 1694969822770-14
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: MANAGER_ID
-        baseTableName: CLIENTS
-        constraintName: FKB04UX70C9NN0YI4Y3PMITLFO9
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: MANAGERS
-        validate: true
-- changeSet:
-    id: 1694969822770-15
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: CREDIT_ACCOUNT_ID
-        baseTableName: TRANSACTIONS
-        constraintName: FKC6BGQJW4PBWA2XSG2QL7N5GRV
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: ACCOUNTS
-        validate: true
-- changeSet:
-    id: 1694969822770-16
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: MANAGER_ID
-        baseTableName: PRODUCTS
-        constraintName: FKG98UWJEWYTAI1I7FE2CU4XIOI
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: MANAGERS
-        validate: true
-- changeSet:
-    id: 1694969822770-17
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: CLIENT_ID
-        baseTableName: ACCOUNTS
-        constraintName: FKGYMOG7FIRRF8BNOIIG61666OB
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: CLIENTS
-        validate: true
-- changeSet:
-    id: 1694969822770-18
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: DEBIT_ACCOUNT_ID
-        baseTableName: TRANSACTIONS
-        constraintName: FKKPQ7IMH2RCOLPGHJXB6B8OUWC
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: ACCOUNTS
-        validate: true
-- changeSet:
-    id: 1694969822770-19
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: ACCOUNT_ID
-        baseTableName: AGREEMENTS
-        constraintName: FKLSHRWA9MQ7IAR9RWXKWDRUS2R
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: ACCOUNTS
-        validate: true
-- changeSet:
-    id: 1694969822770-20
-    author: alex2 (generated)
-    changes:
-    - addForeignKeyConstraint:
-        baseColumnNames: PRODUCT_ID
-        baseTableName: AGREEMENTS
-        constraintName: FKVTP15T5X12X5LK4AKEDY8E4N
-        deferrable: false
-        initiallyDeferred: false
-        onDelete: RESTRICT
-        onUpdate: RESTRICT
-        referencedColumnNames: ID
-        referencedTableName: PRODUCTS
-        validate: true
-
+#- changeSet:
+#    id: 1694969822770-14
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: MANAGER_ID
+#        baseTableName: CLIENTS
+#        constraintName: FKB04UX70C9NN0YI4Y3PMITLFO9
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: MANAGERS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-15
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: CREDIT_ACCOUNT_ID
+#        baseTableName: TRANSACTIONS
+#        constraintName: FKC6BGQJW4PBWA2XSG2QL7N5GRV
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: ACCOUNTS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-16
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: MANAGER_ID
+#        baseTableName: PRODUCTS
+#        constraintName: FKG98UWJEWYTAI1I7FE2CU4XIOI
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: MANAGERS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-17
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: CLIENT_ID
+#        baseTableName: ACCOUNTS
+#        constraintName: FKGYMOG7FIRRF8BNOIIG61666OB
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: CLIENTS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-18
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: DEBIT_ACCOUNT_ID
+#        baseTableName: TRANSACTIONS
+#        constraintName: FKKPQ7IMH2RCOLPGHJXB6B8OUWC
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: ACCOUNTS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-19
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: ACCOUNT_ID
+#        baseTableName: AGREEMENTS
+#        constraintName: FKLSHRWA9MQ7IAR9RWXKWDRUS2R
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: ACCOUNTS
+#        validate: true
+#- changeSet:
+#    id: 1694969822770-20
+#    author: alex2 (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: PRODUCT_ID
+#        baseTableName: AGREEMENTS
+#        constraintName: FKVTP15T5X12X5LK4AKEDY8E4N
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: RESTRICT
+#        onUpdate: RESTRICT
+#        referencedColumnNames: ID
+#        referencedTableName: PRODUCTS
+#        validate: true
+#

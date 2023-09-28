@@ -3,6 +3,8 @@ databaseChangeLog:
       id: insert-accounts
       author: YevgeniyShulimenko
       changes:
+        - tagDatabase:
+          tag:  v1.1
         - insert:
             tableName: accounts
             columns:

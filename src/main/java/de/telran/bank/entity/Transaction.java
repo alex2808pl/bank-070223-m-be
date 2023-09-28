@@ -11,6 +11,7 @@ import java.time.ZonedDateTime;
 @Setter
 @ToString
 @EqualsAndHashCode
+@Builder
 
 @Entity
 @Table(name = "transactions")

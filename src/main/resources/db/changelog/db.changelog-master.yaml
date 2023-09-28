@@ -1,15 +1,17 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/changeset/changelog.h2.yaml
+      file: db/changelog/changeset/v1.0/changelog.h2.yaml
   - include:
-      file: db/changelog/changeset/insert-managers-data-changelog.yaml
+      file: db/changelog/changeset/v1.0.1/add_relation_tables.yaml
   - include:
-      file: db/changelog/changeset/insert-clients-data-changelog.yaml
+      file: db/changelog/changeset/v1.1/insert-managers-data-changelog.yaml
   - include:
-      file: db/changelog/changeset/insert-products-data-changelog.yaml
+      file: db/changelog/changeset/v1.1/insert-clients-data-changelog.yaml
   - include:
-      file: db/changelog/changeset/insert-accounts-data-changelog.yaml
+      file: db/changelog/changeset/v1.1/insert-products-data-changelog.yaml
   - include:
-      file: db/changelog/changeset/insert-agreements-data-changelog.yaml
+      file: db/changelog/changeset/v1.1/insert-accounts-data-changelog.yaml
   - include:
-      file: db/changelog/changeset/insert-transactions-data-changelog.yaml
+      file: db/changelog/changeset/v1.1/insert-agreements-data-changelog.yaml
+  - include:
+      file: db/changelog/changeset/v1.1/insert-transactions-data-changelog.yaml

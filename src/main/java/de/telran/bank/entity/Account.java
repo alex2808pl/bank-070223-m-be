@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @Builder
 
 @Entity
@@ -55,10 +55,10 @@ public class Account {
     private Client client;
 
     @OneToMany(mappedBy = "debitAccount", cascade = CascadeType.ALL)
-    private Set<Transaction> debitTransactions = new HashSet<>();
+    private Set<Transaction> debitTransactions;// = new HashSet<>();
 
     @OneToMany(mappedBy = "creditAccount", cascade = CascadeType.ALL)
-    private Set<Transaction> creditTransactions = new HashSet<>();
+    private Set<Transaction> creditTransactions;// = new HashSet<>();
 
     @OneToOne(mappedBy = "account")
     private Agreement agreement;

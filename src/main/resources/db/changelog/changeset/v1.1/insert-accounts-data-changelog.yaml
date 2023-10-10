@@ -19,10 +19,10 @@ databaseChangeLog:
                   value: "Ann_Jackson_Account"
               - column:
                   name: type
-                  value: "1"
+                  value: "OTHER"
               - column:
                   name: status
-                  value: "1"
+                  value: "ACTIVE"
               - column:
                   name: balance
                   value: "150000"
@@ -50,10 +50,10 @@ databaseChangeLog:
                   value: "Mike_Ruth_Account"
               - column:
                   name: type
-                  value: "1"
+                  value: "OTHER"
               - column:
                   name: status
-                  value: "1"
+                  value: "ACTIVE"
               - column:
                   name: balance
                   value: "190000"

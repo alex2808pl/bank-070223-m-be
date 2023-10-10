@@ -1,7 +1,7 @@
 package de.telran.bank.entity;
 
 public enum TransactionType {
-    DEBIT, CREDIT
+    DEBIT, CREDIT, OTHER
 }
 
 //    тип транзакции это не дебетовая и кредитовая.

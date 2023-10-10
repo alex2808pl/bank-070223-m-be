@@ -17,7 +17,7 @@ databaseChangeLog:
                   value: "2"
               - column:
                   name: type
-                  value: "1"
+                  value: "OTHER"
               - column:
                   name: amount
                   value: "321"
@@ -42,7 +42,7 @@ databaseChangeLog:
                   value: "1"
               - column:
                   name: type
-                  value: "1"
+                  value: "OTHER"
               - column:
                   name: amount
                   value: "251"

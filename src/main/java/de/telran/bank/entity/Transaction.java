@@ -7,10 +7,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Builder
 
 @Entity

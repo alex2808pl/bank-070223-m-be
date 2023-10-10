@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
+//@EqualsAndHashCode
 
 @Entity
 @Table(name = "agreements")
@@ -44,7 +44,7 @@ public class Agreement {
     public Agreement() {
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne//(fetch = FetchType.LAZY)
     private Product product;
 
     @OneToOne(cascade = CascadeType.ALL)

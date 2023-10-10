@@ -17,7 +17,7 @@ databaseChangeLog:
                   value: "Current debit account"
               - column:
                   name: status
-                  value: "0"
+                  value: "ACTIVE"
               - column:
                   name: currency_code
                   value: "2"

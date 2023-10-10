@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: insert-agreements
-      author: YevgeniyShulimenko
+      author: alex2808
       changes:
         - insert:
             tableName: agreements
@@ -20,7 +20,7 @@ databaseChangeLog:
                   value: "8"
               - column:
                   name: status
-                  value: "0"
+                  value: "ACTIVE"
               - column:
                   name: total
                   value: "150000"
@@ -30,5 +30,31 @@ databaseChangeLog:
               - column:
                   name: updated_at
                   value: "2023-09-16 22:44:26.185"
-
+        - insert:
+            tableName: agreements
+            columns:
+              - column:
+                  name: id
+                  value: "2"
+              - column:
+                  name: account_id
+                  value: "2"
+              - column:
+                  name: product_id
+                  value: "1"
+              - column:
+                  name: interest_rate
+                  value: "8"
+              - column:
+                  name: status
+                  value: "ACTIVE"
+              - column:
+                  name: total
+                  value: "100000"
+              - column:
+                  name: created_at
+                  value: "2023-09-13 22:41:30.159"
+              - column:
+                  name: updated_at
+                  value: "2023-09-17 22:44:26.185"
 

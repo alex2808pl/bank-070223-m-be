@@ -17,7 +17,7 @@ databaseChangeLog:
                   value: "Семенова"
               - column:
                   name: status
-                  value: "0"
+                  value: "ACTIVE"
               - column:
                   name: created_at
                   value: "2023-07-07 08:41:08.788"
@@ -39,7 +39,7 @@ databaseChangeLog:
                   value: "Иванов"
               - column:
                   name: status
-                  value: "0"
+                  value: "ACTIVE"
               - column:
                   name: created_at
                   value: "2023-07-15 08:41:08.788"

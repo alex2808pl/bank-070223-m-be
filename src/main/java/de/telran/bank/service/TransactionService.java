@@ -51,4 +51,16 @@ public class TransactionService {
         return transactionDto;
 
     }
+
+    public List<TransactionDto> getTransactionsByClientId(Long id) {
+        List<Transaction> transactions = transactionRepository.findByClientId(id);
+        List<TransactionDto> transactionList = MapperUtil.convertList(transactions, mappers::convertToTransactionDto);
+        return transactionList;
+    }
+
+    public List<TransactionDto> findTransactionsByManagerId(String name) {
+        List<Transaction> transactions = transactionRepository.findTransactionsByManagerId(name);
+        List<TransactionDto> transactionList = MapperUtil.convertList(transactions, mappers::convertToTransactionDto);
+        return transactionList;
+    }
 }

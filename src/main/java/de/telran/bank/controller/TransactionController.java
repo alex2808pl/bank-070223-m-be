@@ -31,4 +31,16 @@ public class TransactionController {
         TransactionDtoShort transaction = transactionService.getTransactionId(id);
         return new ResponseEntity<>(transaction, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/client/{id}")
+    public ResponseEntity<List<TransactionDto>> getTransactionsByClientId(@PathVariable Long id) {
+        List<TransactionDto> transactions = transactionService.getTransactionsByClientId(id);
+        return new ResponseEntity<>(transactions, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/manager/{name}")
+    public ResponseEntity<List<TransactionDto>> findTransactionsByManagerId(@PathVariable String name) {
+        List<TransactionDto> transactions = transactionService.findTransactionsByManagerId(name);
+        return new ResponseEntity<>(transactions, HttpStatus.OK);
+    }
 }

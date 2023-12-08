@@ -12,11 +12,28 @@ public class Mappers {
     private ModelMapper modelMapper;
 
     public TransactionDto convertToTransactionDto(Transaction transaction) {
+        modelMapper.typeMap(Transaction.class, TransactionDto.class)
+                .addMappings(mapper -> mapper.skip(TransactionDto::setType));
         TransactionDto transactionDto = modelMapper.map(transaction, TransactionDto.class);
+
         transactionDto.setCreditAccountDto(convertToAccountDto(transaction.getCreditAccount()));
-        transactionDto.setDebitAccountDto(convertToAccountDto(transaction.getDebitAccount()));
+//        transactionDto.setDebitAccountDto(convertToAccountDto(transaction.getDebitAccount()));
         return transactionDto;
     }
+
+    public TransactionDtoShort convertToTransactionDtoSkipType(Transaction transaction) {
+        modelMapper.typeMap(Transaction.class, TransactionDtoShort.class)
+                .addMappings(mapper -> mapper.skip(TransactionDtoShort::setType));
+        TransactionDtoShort transactionDto = modelMapper.map(transaction, TransactionDtoShort.class);
+        transactionDto.setCreditAccountDto(convertToAccountDtoWithoutRelation(transaction.getCreditAccount()));
+        transactionDto.setDebitAccountDto(convertToAccountDtoWithoutRelation(transaction.getDebitAccount()));
+        return transactionDto;
+    }
+
+//    private User convertToNoPassUser(User user) {
+//        modelMapper.typeMap(User.class, User.class).addMappings(mapper -> mapper.skip(User::setPassword));
+//        return modelMapper.map(user, User.class);
+//    }
 
     public TransactionDtoShort convertToTransactionDtoWithoutRelation(Transaction transaction) {
         TransactionDtoShort transactionDto = modelMapper.map(transaction, TransactionDtoShort.class);
@@ -50,6 +67,12 @@ public class Mappers {
         clientDto.setManagerDto(convertToManagerDto(client.getManager()));
         return clientDto;
     }
+
+    public Client convertToClientEntity(ClientDto clientDto) {
+        Client client = modelMapper.map(clientDto, Client.class);
+        return client;
+    }
+
     public ProductDto convertToProductDto(Product product) {
         ProductDto productDto = modelMapper.map(product, ProductDto.class);
         productDto.setManagerDto(convertToManagerDto(product.getManager()));

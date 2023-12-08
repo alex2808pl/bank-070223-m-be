@@ -8,9 +8,9 @@ databaseChangeLog:
         - insert:
             tableName: accounts
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: client_id
                   value: "1"
@@ -39,9 +39,9 @@ databaseChangeLog:
         - insert:
             tableName: accounts
             columns:
-              - column:
-                  name: id
-                  value: "2"
+#              - column:
+#                  name: id
+#                  value: "2"
               - column:
                   name: client_id
                   value: "2"

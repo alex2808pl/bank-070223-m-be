@@ -54,6 +54,7 @@ public class Client {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "manager_id")
     private Manager manager;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)

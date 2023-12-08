@@ -6,9 +6,9 @@ databaseChangeLog:
         - insert:
             tableName: managers
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: first_name
                   value: "Елена"
@@ -28,9 +28,9 @@ databaseChangeLog:
         - insert:
             tableName: managers
             columns:
-              - column:
-                  name: id
-                  value: "2"
+#              - column:
+#                  name: id
+#                  value: "2"
               - column:
                   name: first_name
                   value: "Петр"

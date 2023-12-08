@@ -47,6 +47,7 @@ public class TransactionService {
     public TransactionDtoShort getTransactionId(Long id) {
         Transaction transaction = transactionRepository.findById(id).orElse(null);
         TransactionDtoShort transactionDto = MapperUtil.convertList(List.of(transaction), mappers::convertToTransactionDtoWithoutRelation).get(0);
+//        TransactionDtoShort transactionDto = MapperUtil.convertList(List.of(transaction), mappers::convertToTransactionDtoSkipType).get(0);
 
         return transactionDto;
 

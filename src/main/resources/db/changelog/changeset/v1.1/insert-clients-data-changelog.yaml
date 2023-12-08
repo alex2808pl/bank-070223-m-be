@@ -6,9 +6,9 @@ databaseChangeLog:
         - insert:
             tableName: clients
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: manager_id
                   value: "1"
@@ -43,9 +43,9 @@ databaseChangeLog:
         - insert:
             tableName: clients
             columns:
-              - column:
-                  name: id
-                  value: "2"
+#              - column:
+#                  name: id
+#                  value: "2"
               - column:
                   name: manager_id
                   value: "2"
@@ -80,9 +80,9 @@ databaseChangeLog:
         - insert:
             tableName: clients
             columns:
-              - column:
-                  name: id
-                  value: "3"
+#              - column:
+#                  name: id
+#                  value: "3"
               - column:
                   name: manager_id
                   value: "1"

@@ -6,9 +6,9 @@ databaseChangeLog:
         - insert:
             tableName: agreements
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: account_id
                   value: "1"
@@ -33,9 +33,9 @@ databaseChangeLog:
         - insert:
             tableName: agreements
             columns:
-              - column:
-                  name: id
-                  value: "2"
+#              - column:
+#                  name: id
+#                  value: "2"
               - column:
                   name: account_id
                   value: "2"

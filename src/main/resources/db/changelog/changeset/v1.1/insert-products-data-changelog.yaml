@@ -6,9 +6,9 @@ databaseChangeLog:
         - insert:
             tableName: products
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: manager_id
                   value: "1"

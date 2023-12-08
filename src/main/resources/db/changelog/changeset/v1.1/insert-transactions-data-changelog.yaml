@@ -6,9 +6,9 @@ databaseChangeLog:
         - insert:
             tableName: transactions
             columns:
-              - column:
-                  name: id
-                  value: "1"
+#              - column:
+#                  name: id
+#                  value: "1"
               - column:
                   name: debit_account_id
                   value: "1"
@@ -31,9 +31,9 @@ databaseChangeLog:
         - insert:
             tableName: transactions
             columns:
-              - column:
-                  name: id
-                  value: "2"
+#              - column:
+#                  name: id
+#                  value: "2"
               - column:
                   name: debit_account_id
                   value: "2"

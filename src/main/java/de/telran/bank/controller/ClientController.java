@@ -1,7 +1,9 @@
 package de.telran.bank.controller;
 
+import de.telran.bank.controller.advice.ResponseException;
 import de.telran.bank.dto.ClientDto;
 import de.telran.bank.service.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,19 +27,19 @@ public class ClientController {
 //    }
 
     @PostMapping
-    public ResponseEntity<ClientDto> createClient(@RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> createClient(@RequestBody @Valid ClientDto clientDto) throws ResponseException {
         ClientDto client = clientService.createClient(clientDto);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<ClientDto> updateClient(@RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientDto> updateClient(@RequestBody ClientDto clientDto) throws ResponseException {
         ClientDto client = clientService.updateClient(clientDto);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteClient(@PathVariable Long id) {
+    public ResponseEntity deleteClient(@PathVariable Long id) throws ResponseException {
         clientService.deleteClient(id);
         return ResponseEntity.ok().build();
     }

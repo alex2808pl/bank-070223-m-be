@@ -8,8 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
-@Data
+//@Data
 @Builder
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+
 
 @Entity
 @Table(name = "clients")

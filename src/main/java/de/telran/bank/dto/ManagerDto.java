@@ -14,6 +14,8 @@ import java.util.HashSet;
 import java.util.Set;
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ManagerDto {
     private Long id;
     private String firstName;

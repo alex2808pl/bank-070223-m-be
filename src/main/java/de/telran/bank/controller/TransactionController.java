@@ -1,16 +1,16 @@
 package de.telran.bank.controller;
 
+import de.telran.bank.controller.advice.ResponseException;
+import de.telran.bank.dto.ClientDto;
 import de.telran.bank.dto.TransactionDto;
 import de.telran.bank.dto.TransactionDtoShort;
 import de.telran.bank.entity.Transaction;
 import de.telran.bank.service.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,9 +26,15 @@ public class TransactionController {
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}/short")
+    public ResponseEntity<TransactionDtoShort> getTransactionsIdShort(@PathVariable Long id) {
+        TransactionDtoShort transaction = transactionService.getTransactionIdShort(id);
+        return new ResponseEntity<>(transaction, HttpStatus.OK);
+    }
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<TransactionDtoShort> getTransactionsId(@PathVariable Long id) {
-        TransactionDtoShort transaction = transactionService.getTransactionId(id);
+    public ResponseEntity<TransactionDto> getTransactionsId(@PathVariable Long id) {
+        TransactionDto transaction = transactionService.getTransactionId(id);
         return new ResponseEntity<>(transaction, HttpStatus.OK);
     }
 
@@ -43,4 +49,11 @@ public class TransactionController {
         List<TransactionDto> transactions = transactionService.findTransactionsByManagerId(name);
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }
+
+    @PostMapping
+    public ResponseEntity<TransactionDto> createClient(@RequestBody @Valid TransactionDto transactionDto) throws ResponseException {
+        TransactionDto transaction = transactionService.createTransaction(transactionDto);
+        return new ResponseEntity<>(transaction, HttpStatus.OK);
+    }
+
 }

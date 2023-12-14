@@ -24,30 +24,29 @@ import java.util.Optional;
 @Service
 public class ClientService {
 
-//    @Autowired
     private ClientRepository clientRepository;
-
     private ManagerRepository managerRepository;
-
-//    @Autowired
     private Mappers mappers;
-
-    @Autowired
     private ModelMapper modelMapper;
 
-
-    public ClientService(ClientRepository clientRepository, ManagerRepository managerRepository, Mappers mappers) {
+    public ClientService(ClientRepository clientRepository, ManagerRepository managerRepository, Mappers mappers, ModelMapper modelMapper) {
         this.clientRepository = clientRepository;
         this.managerRepository = managerRepository;
         this.mappers = mappers;
+        this.modelMapper = modelMapper;
     }
 
-    public ClientDto getClientId(Long id) {
-//        Client client = clientRepository.findClientById(id);
-        Optional<Client> clientOptional = clientRepository.findById(id);
+    public ClientDto getClientId(Long id) throws ResponseException {
         ClientDto clientDto = null;
-        if(clientOptional.isPresent()) {
-           clientDto = MapperUtil.convertList(List.of(clientOptional.get()), mappers::convertToClientDto).get(0);
+        if (id != null) {
+            Optional<Client> clientOptional = clientRepository.findById(id);
+            if (clientOptional.isPresent()) {
+                clientDto = MapperUtil.convertList(List.of(clientOptional.get()), mappers::convertToClientDto).get(0);
+            } else {
+                throw new ResponseException(String.format("Не найден клиент в БД с Id=%d!",id));
+            }
+        } else {
+            throw new ResponseException("Отсутствует Id клиента для поиска!");
         }
         return clientDto;
     }
@@ -111,8 +110,9 @@ public class ClientService {
                 // сообщение что не найден клиент с таким ИД в БД
                 throw new ResponseException(String.format("Не найден клиент в БД с Id=%d!",clientDto.getId()));
             }
+        } else {
+            throw new ResponseException("Ошибка обработки полученного тела запроса!");
         }
-        return null;
     }
 
     public ClientDto deleteClient(Long id) throws ResponseException {

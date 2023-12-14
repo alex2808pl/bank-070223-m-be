@@ -15,7 +15,7 @@ public class ClientController {
     @Autowired
     ClientService clientService;
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ClientDto> getClientId(@PathVariable Long id) {
+    public ResponseEntity<ClientDto> getClientId(@PathVariable Long id) throws ResponseException {
         ClientDto client = clientService.getClientId(id);
         return new ResponseEntity<>(client, HttpStatus.OK);
     }

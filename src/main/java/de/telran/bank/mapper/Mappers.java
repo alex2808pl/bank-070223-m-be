@@ -12,12 +12,12 @@ public class Mappers {
     private ModelMapper modelMapper;
 
     public TransactionDto convertToTransactionDto(Transaction transaction) {
-        modelMapper.typeMap(Transaction.class, TransactionDto.class)
-                .addMappings(mapper -> mapper.skip(TransactionDto::setType));
+//        modelMapper.typeMap(Transaction.class, TransactionDto.class)
+//                .addMappings(mapper -> mapper.skip(TransactionDto::setType));
         TransactionDto transactionDto = modelMapper.map(transaction, TransactionDto.class);
 
         transactionDto.setCreditAccountDto(convertToAccountDto(transaction.getCreditAccount()));
-//        transactionDto.setDebitAccountDto(convertToAccountDto(transaction.getDebitAccount()));
+        transactionDto.setDebitAccountDto(convertToAccountDto(transaction.getDebitAccount()));
         return transactionDto;
     }
 
@@ -81,5 +81,10 @@ public class Mappers {
     public ManagerDto convertToManagerDto(Manager manager) {
         ManagerDto managerDto = modelMapper.map(manager, ManagerDto.class);
         return managerDto;
+    }
+
+    public Transaction convertToTransactionEntity(TransactionDto transactionDto) {
+        Transaction transaction  = modelMapper.map(transactionDto, Transaction.class);
+        return transaction;
     }
 }

@@ -12,6 +12,7 @@ import de.telran.bank.repository.ClientRepository;
 import de.telran.bank.repository.ManagerRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -130,6 +131,7 @@ class ClientServiceTest {
     }
 
     @Test
+    @DisplayName("Тестируем обновление информации по клиенту")
     void updateClientTest() throws ResponseException {
         when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.of(expectedClient));
         when(clientRepositoryMock.save(expectedClient)).thenReturn(expectedClient);
@@ -168,5 +170,17 @@ class ClientServiceTest {
     @Test
     void deleteClientExceptionTest() {
         assertThrows(ResponseException.class, () -> clientServiceTest.deleteClient(null));
+    }
+
+    @Test
+    void deleteClientExceptionNoSaveTest() {
+        when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.of(expectedClient));
+        when(clientRepositoryMock.save(expectedClient)).thenReturn(null);
+        assertThrows(ResponseException.class, () -> clientServiceTest.deleteClient(1L));
+    }
+    @Test
+    void deleteClientExceptionNoFindClientTest() {
+        when(clientRepositoryMock.findById(anyLong())).thenReturn(Optional.empty());
+        assertThrows(ResponseException.class, () -> clientServiceTest.deleteClient(1L));
     }
 }

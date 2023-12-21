@@ -1,0 +1,88 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-users
+      author: alex2
+      changes:
+        - insert:
+            tableName: USERS
+            columns:
+#              - column:
+#                  name: id
+#                  value: "1"
+              - column:
+                  name: FIRST_NAME
+                  value: "Андрей"
+              - column:
+                  name: LAST_NAME
+                  value: "Сергеев"
+              - column:
+                  name: LOGIN
+                  value: "andrei"
+              - column:
+                  name: PAS
+                  value: "1234"
+              - column:
+                  name: ROLES
+                  value: "USER"
+              - column:
+                  name: CREATED_AT
+                  value: "2023-09-14 22:41:30.159"
+              - column:
+                  name: UPDATED_AT
+                  value: "2023-09-16 22:44:26.185"
+
+        - insert:
+            tableName: USERS
+            columns:
+              #              - column:
+              #                  name: id
+              #                  value: "1"
+              - column:
+                  name: FIRST_NAME
+                  value: "Петр"
+              - column:
+                  name: LAST_NAME
+                  value: "Иванов"
+              - column:
+                  name: LOGIN
+                  value: "petr"
+              - column:
+                  name: PAS
+                  value: "12345"
+              - column:
+                  name: ROLES
+                  value: "ADMIN"
+              - column:
+                  name: CREATED_AT
+                  value: "2023-09-14 22:41:30.159"
+              - column:
+                  name: UPDATED_AT
+                  value: "2023-09-16 22:44:26.185"
+
+        - insert:
+            tableName: USERS
+            columns:
+              #              - column:
+              #                  name: id
+              #                  value: "1"
+              - column:
+                  name: FIRST_NAME
+                  value: "Сергей"
+              - column:
+                  name: LAST_NAME
+                  value: "Макаров"
+              - column:
+                  name: LOGIN
+                  value: "serg"
+              - column:
+                  name: PAS
+                  value: "123"
+              - column:
+                  name: ROLES
+                  value: "EDITOR"
+              - column:
+                  name: CREATED_AT
+                  value: "2023-09-14 22:41:30.159"
+              - column:
+                  name: UPDATED_AT
+                  value: "2023-09-16 22:44:26.185"

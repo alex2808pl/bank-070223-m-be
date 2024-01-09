@@ -3,6 +3,7 @@ package de.telran.bank.controller;
 import de.telran.bank.controller.advice.ResponseException;
 import de.telran.bank.dto.ClientDto;
 import de.telran.bank.service.ClientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/clients")
-public class ClientController {
+public class ClientController implements ClientControllerInterface{
     @Autowired
     ClientService clientService;
 

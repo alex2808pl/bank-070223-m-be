@@ -1,16 +1,18 @@
 package de.telran.bank.security.controller;
 
+import de.telran.bank.controller.advice.ResponseException;
 import de.telran.bank.security.jwt.JwtRequest;
 import de.telran.bank.security.jwt.JwtRequestRefresh;
 import de.telran.bank.security.jwt.JwtResponse;
+import de.telran.bank.security.model.UserDto;
 import de.telran.bank.security.service.AuthService;
 import jakarta.security.auth.message.AuthException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
@@ -61,4 +63,10 @@ public class AuthController {
         return ResponseEntity.ok(token);
     }
 
+    @PostMapping("/registration")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public ResponseEntity<UserDto> register(@RequestBody UserDto userCredentialsDto) throws ResponseException {
+        UserDto userDto = authService.createUser(userCredentialsDto);
+        return ResponseEntity.ofNullable(userDto);
+    }
 }

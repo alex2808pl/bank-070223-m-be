@@ -1,15 +1,18 @@
 package de.telran.bank.security.service;
 
+import de.telran.bank.controller.advice.ResponseException;
 import de.telran.bank.security.jwt.JwtAuthentication;
 import de.telran.bank.security.jwt.JwtProvider;
 import de.telran.bank.security.jwt.JwtRequest;
 import de.telran.bank.security.jwt.JwtResponse;
-import de.telran.bank.security.model.User;
+import de.telran.bank.security.model.UserDto;
 import io.jsonwebtoken.Claims;
 import jakarta.security.auth.message.AuthException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -49,6 +52,8 @@ public class AuthService {
      */
     private final JwtProvider jwtProvider;
 
+    private final PasswordEncoder passwordEncoder;
+
     /**
      * Handles user login and returns JWT tokens upon successful authentication.
      *
@@ -57,12 +62,13 @@ public class AuthService {
      * @throws AuthException if the user is not found or the password is incorrect.
      */
     public JwtResponse login(@NonNull JwtRequest authRequest) throws AuthException {
-        final User user = userService.getByLogin(authRequest.getLogin())
+        final UserDto userDto = userService.getByLogin(authRequest.getLogin())
                 .orElseThrow(() -> new AuthException("User is not found"));
-        if (user.getPassword().equals(authRequest.getPassword())) {
-            final String accessToken = jwtProvider.generateAccessToken(user);
-            final String refreshToken = jwtProvider.generateRefreshToken(user);
-            refreshStorage.put(user.getLogin(), refreshToken);
+//        if (userDto.getPassword().equals(authRequest.getPassword())) {
+        if (passwordEncoder.matches(authRequest.getPassword(), userDto.getPassword())) {
+            final String accessToken = jwtProvider.generateAccessToken(userDto);
+            final String refreshToken = jwtProvider.generateRefreshToken(userDto);
+            refreshStorage.put(userDto.getLogin(), refreshToken);
             return new JwtResponse(accessToken, refreshToken);
         } else {
             throw new AuthException("Wrong password");
@@ -96,10 +102,10 @@ public class AuthService {
             // Compare the stored refresh token with the provided token
             if (savedRefreshToken != null && savedRefreshToken.equals(refreshToken)) {
                 // Fetch the user data
-                final User user = userService.getByLogin(login)
+                final UserDto userDto = userService.getByLogin(login)
                         .orElseThrow(() -> new AuthException("User is not found"));
                 // Generate a new access token
-                final String accessToken = jwtProvider.generateAccessToken(user);
+                final String accessToken = jwtProvider.generateAccessToken(userDto);
                 // Return a JwtResponse with the new access token
                 return new JwtResponse(accessToken, null);
             }
@@ -137,13 +143,13 @@ public class AuthService {
             // Compare the stored refresh token with the provided token
             if (savedRefreshToken != null && savedRefreshToken.equals(refreshToken)) {
                 // Fetch the user data
-                final User user = userService.getByLogin(login)
+                final UserDto userDto = userService.getByLogin(login)
                         .orElseThrow(() -> new AuthException("User is not found"));
                 // Generate new access and refresh tokens
-                final String accessToken = jwtProvider.generateAccessToken(user);
-                final String newRefreshToken = jwtProvider.generateRefreshToken(user);
+                final String accessToken = jwtProvider.generateAccessToken(userDto);
+                final String newRefreshToken = jwtProvider.generateRefreshToken(userDto);
                 // Update the stored refresh token for the user
-                refreshStorage.put(user.getLogin(), newRefreshToken);
+                refreshStorage.put(userDto.getLogin(), newRefreshToken);
                 // Return a JwtResponse with the new access and refresh tokens
                 return new JwtResponse(accessToken, newRefreshToken);
             }
@@ -162,4 +168,7 @@ public class AuthService {
         return (JwtAuthentication) SecurityContextHolder.getContext().getAuthentication();
     }
 
+    public UserDto createUser(UserDto userCredentialsDto) throws ResponseException {
+        return userService.createUser(userCredentialsDto);
+    }
 }

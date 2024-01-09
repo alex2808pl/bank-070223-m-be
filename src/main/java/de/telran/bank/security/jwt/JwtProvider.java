@@ -1,6 +1,6 @@
 package de.telran.bank.security.jwt;
 
-import de.telran.bank.security.model.User;
+import de.telran.bank.security.model.UserDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -64,34 +64,34 @@ public class JwtProvider {
     /**
      * Generates an access token for a user.
      *
-     * @param user the user for whom the access token is generated.
+     * @param userDto the user for whom the access token is generated.
      * @return the generated access token.
      */
-    public String generateAccessToken(@NonNull User user) {
+    public String generateAccessToken(@NonNull UserDto userDto) {
         final LocalDateTime now = LocalDateTime.now();
         final Instant accessExpirationInstant = now.plusMinutes(15).atZone(ZoneId.systemDefault()).toInstant();
         final Date accessExpiration = Date.from(accessExpirationInstant);
         return Jwts.builder()
-                .setSubject(user.getLogin())
+                .setSubject(userDto.getLogin())
                 .setExpiration(accessExpiration)
                 .signWith(jwtAccessSecret)
-                .claim("roles", user.getRoles())
-                .claim("firstName", user.getFirstName())
+                .claim("roles", userDto.getRoles())
+                .claim("firstName", userDto.getFirstName())
                 .compact();
     }
 
     /**
      * Generates a refresh token for a user.
      *
-     * @param user the user for whom the refresh token is generated.
+     * @param userDto the user for whom the refresh token is generated.
      * @return the generated refresh token.
      */
-    public String generateRefreshToken(@NonNull User user) {
+    public String generateRefreshToken(@NonNull UserDto userDto) {
         final LocalDateTime now = LocalDateTime.now();
         final Instant refreshExpirationInstant = now.plusDays(30).atZone(ZoneId.systemDefault()).toInstant();
         final Date refreshExpiration = Date.from(refreshExpirationInstant);
         return Jwts.builder()
-                .setSubject(user.getLogin())
+                .setSubject(userDto.getLogin())
                 .setExpiration(refreshExpiration)
                 .signWith(jwtRefreshSecret)
                 .compact();

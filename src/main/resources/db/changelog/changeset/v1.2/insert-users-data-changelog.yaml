@@ -20,7 +20,7 @@ databaseChangeLog:
                   value: "andrei"
               - column:
                   name: PAS
-                  value: "1234"
+                  value: "$2a$10$I7r0aNpBBMMOi5IYDr//l.4I37aLoXWNaf7oGXH0SbvCA5NkaaiwK"        #1234
               - column:
                   name: ROLES
                   value: "USER"
@@ -48,7 +48,7 @@ databaseChangeLog:
                   value: "petr"
               - column:
                   name: PAS
-                  value: "12345"
+                  value: "$2a$10$UmcayZtM7v/T/TT7fNDi/udNwuybLy9wXiCZ9xFr/585x1Jj1yrIu"    #12345
               - column:
                   name: ROLES
                   value: "ADMIN"
@@ -76,10 +76,10 @@ databaseChangeLog:
                   value: "serg"
               - column:
                   name: PAS
-                  value: "123"
+                  value: "$2a$10$Vc6.Ilv2fV1t59tZ6p3yyeEalNW8RlnevvS7l9487tVw7BfHOum1q"     #123
               - column:
                   name: ROLES
-                  value: "EDITOR"
+                  value: "EDITOR,USER"
               - column:
                   name: CREATED_AT
                   value: "2023-09-14 22:41:30.159"

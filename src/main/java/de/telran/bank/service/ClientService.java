@@ -41,7 +41,8 @@ public class ClientService {
         if (id != null) {
             Optional<Client> clientOptional = clientRepository.findById(id);
             if (clientOptional.isPresent()) {
-                clientDto = MapperUtil.convertList(List.of(clientOptional.get()), mappers::convertToClientDto).get(0);
+                clientDto = mappers.convertToClientDto(clientOptional.get());
+//                clientDto = MapperUtil.convertList(List.of(clientOptional.get()), mappers::convertToClientDto).get(0);
             } else {
                 throw new ResponseException(String.format("Не найден клиент в БД с Id=%d!",id));
             }

@@ -2,6 +2,7 @@ package de.telran.bank.mapper;
 
 import de.telran.bank.dto.*;
 import de.telran.bank.entity.*;
+import de.telran.bank.security.entity.UserEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
